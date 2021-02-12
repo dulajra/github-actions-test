@@ -1,0 +1,17 @@
+name: Release Wave
+
+jobs:
+  release:
+    name: Test stage
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup
+        run: ./script.sh
+
+      - name: Commit & Tag
+        uses: EndBug/add-and-commit@v5
+        with:
+          add: '.'
+          message: "chore: New commit"
